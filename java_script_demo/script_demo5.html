@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>script_demo5</title>
+  <script>
+
+
+    function addtask(){
+      let ntask=document.getElementById("ntask").value;
+      let li=document.createElement("li");
+      li.innerHTML=ntask;
+      let ul=document.getElementById("tasklist");
+      ul.append(li);
+      document.getElementById("ntask").value='';
+      document.getElementById("addbtn").disabled=true;
+
+    }
+    document.addEventListener('DOMContentLoaded',()=>{
+      document.getElementById("addbtn").onclick=addtask;
+      document.getElementById("addbtn").disabled=true;
+
+      document.getElementById("ntask").onkeyup=function(){
+
+        if(this.value.length>0)
+        {
+          document.getElementById("addbtn").disabled=false;
+        }
+        else
+        {
+          document.getElementById("addbtn").disabled=true;
+        }
+
+      }
+
+    })
+  </script>
+</head>
+<body>
+  <ul id="tasklist">
+
+  </ul>
+  <form>
+    <input type="text" id="ntask">
+    <input type="button" value="add" id="addbtn">
+  </form>
+</body>
+</html>

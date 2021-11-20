@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>script demo3</title>
+  <script>
+    function showmsg(){
+      let ans=document.getElementById("ans");
+      if(ans.innerHTML=="hello")
+      {
+        ans.innerHTML="goodbye";
+      }
+      else
+      {
+        ans.innerHTML="hello";
+      }
+    }
+    document.addEventListener('DOMContentLoaded',()=>{
+      document.getElementById("click").onclick=showmsg;
+    })
+  </script>
+</head>
+<body>
+<h1 id="ans">hello</h1>
+<input type="button" id="click" value="click" >
+</body>
+</html>

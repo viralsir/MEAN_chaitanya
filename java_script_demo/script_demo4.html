@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>script demo4</title>
+  <script>
+    function showname(){
+      let namevalue=document.getElementById("name").value;
+      document.getElementById("result").innerHTML=`Hello ${namevalue}`;
+      document.getElementById("name").value='';
+
+    }
+    document.addEventListener('DOMContentLoaded',()=>{
+      document.getElementById("clickbtn").onclick=showname;
+    })
+  </script>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <form>
+      <input type="text" placeholder="Name" id="name">
+      <input type="button" value="click" id="clickbtn">
+    </form>
+</body>
+</html>

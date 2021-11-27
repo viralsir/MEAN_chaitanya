@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Demo</title>
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+
+     /* document.getElementById("redbtn").onclick=function(){
+        document.getElementById("result").style.color='red';
+      }
+
+      document.getElementById("bluebtn").onclick=function(){
+        document.getElementById("result").style.color='blue';
+      }
+
+      document.getElementById("greentbtn").onclick=function (){
+        document.getElementById("result").style.color='green';
+      }
+*/
+     /* document.querySelectorAll("button").forEach(button=>{
+         button.onclick=function(){
+           document.getElementById("result").style.color=this.dataset.color;
+         }
+      })
+*/
+
+      document.getElementById("colors").onchange=function (){
+        document.getElementById("result").style.color=this.value;
+      }
+
+    })
+  </script>
+</head>
+<body>
+  <h1 id="result">Hello</h1>
+<!--  <button id="redbtn">red</button>-->
+<!--  <button id="greentbtn">green</button>-->
+<!--  <button id="bluebtn">blue</button>-->
+
+<!--    <button data-color="red">red</button>-->
+<!--    <button data-color="green">green</button>-->
+<!--    <button data-color="blue">blue</button>-->
+<!--    <button data-color="pink">pink</button>-->
+
+  <select id="colors">
+    <option value="red">red</option>
+    <option value="green">green</option>
+    <option value="blue">blue</option>
+    <option value="pink">pink</option>
+  </select>
+
+
+
+</body>
+</html>

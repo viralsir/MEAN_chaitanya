@@ -27,6 +27,7 @@
       <td colspan="2">
         <input type="button" class="btn btn-outline-primary btn-sm" id="addbtn" value="add">
         <input type="reset" class="btn btn-outline-primary btn-sm" value="clear">
+        <input type="button" id="viewbtn" value="View">
       </td>
     </tr>
   </table>
@@ -36,13 +37,24 @@
     <th>First Name </th> <th>Last Name</th><th>Phno</th></tr>
 </table>
 <script>
+  if(!localStorage.getItem("persons"))
+  {
+    localStorage.setItem("persons",JSON.stringify([]));
+  }
+
    document.getElementById("addbtn").onclick=function (){
 
      let fname=document.getElementById("fname").value;
      let lname=document.getElementById("lname").value;
      let phno=document.getElementById("phno").value;
 
-     let tr=document.createElement("tr");
+     let person={"first_name":fname,"last_name":lname,"phno":phno};
+     let persons=JSON.parse(localStorage.getItem("persons"));
+     persons.push(person)
+     localStorage.setItem("persons",JSON.stringify(persons));
+
+
+     /*let tr=document.createElement("tr");
      let td1=document.createElement("td");
      let td2=document.createElement("td");
      let td3=document.createElement("td");
@@ -55,10 +67,29 @@
 
      let table=document.getElementById("result");
      table.append(tr);
-
+*/
      document.getElementById("fname").value="";
      document.getElementById("lname").value="";
      document.getElementById("phno").value="";
+     document.getElementById("result").innerHTML=`<tr><td>Recrod is added</td></tr>`;
+
+   }
+
+   document.getElementById("viewbtn").onclick=function (){
+    let persons=JSON.parse(localStorage.getItem("persons"));
+    let table=document.getElementById("result");
+     for (let i = 0; i < persons.length; i++) {
+        let tr=document.createElement("tr");
+        let td1=document.createElement("td");
+        let td2=document.createElement("td");
+        let td3=document.createElement("td");
+        td1.innerHTML=persons[i].first_name;
+        td2.innerHTML=persons[i].last_name;
+        td3.innerHTML=persons[i].phno;
+       tr.append(td1);tr.append(td2);tr.append(td3);
+       table.append(tr);
+
+     }
 
 
    }

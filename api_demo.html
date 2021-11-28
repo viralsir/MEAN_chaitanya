@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>api demo</title>
+
+  <script>
+     fetch("http://universities.hipolabs.com/search?country=United+Kingdom")
+     .then(response=>response.json())
+     .then(data=>{
+       console.log(data);
+       let table=document.getElementById("result");
+       for (const uni of data) {
+          let tr=document.createElement("tr");
+          let country=document.createElement("td");
+          let name=document.createElement("td");
+          let webpage=document.createElement("td");
+          country.innerHTML=uni.country;
+          name.innerHTML=uni.name;
+          webpage.innerHTML=uni.web_pages[0]
+         tr.append(country);tr.append(name);tr.append(webpage);
+         table.append(tr);
+       }
+     })
+  </script>
+</head>
+<body>
+ <table id="result" border="2">
+   <tr><th>Country</th> <th>Name</th> <th>WEB PAGE</th></tr>
+ </table>
+</body>
+</html>
